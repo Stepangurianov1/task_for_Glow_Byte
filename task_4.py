@@ -31,7 +31,7 @@ def request_1(cur):
         FROM Calls),
         CallsWithFlag AS (
         SELECT id_client, time_diff, id_call,
-        (CASE WHEN time_diff < 1600 THEN 1 ELSE 0 END) as flag
+        (CASE WHEN time_diff < 3600 THEN 1 ELSE 0 END) as flag
         FROM CallsWithGaps)
         SELECT id_client, SUM(end_session) / 2 FROM(
         SELECT 
